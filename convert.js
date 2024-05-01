@@ -29,10 +29,7 @@ let convertcurrency = () => {
     const fromCurrency = fromList.value
     const toCurrency = toList.value
 
-    if(amount.length == 0){
-        alert("Please Enter the amount")
-    }
-    else{
+    if(amount.length != 0){
         fetch(api).then(resp => resp.json()).then(data => {
             let fromRates = data.conversion_rates[fromCurrency]
             let toRates = data.conversion_rates[toCurrency]
@@ -41,6 +38,10 @@ let convertcurrency = () => {
                 2
               )} ${toCurrency}`;
         })
+        
+    }
+    else{
+        alert("Please Enter the amount")
     }
 }
 
